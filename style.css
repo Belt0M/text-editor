@@ -1,0 +1,135 @@
+:root {
+	--main-color: #1b86f2;
+	--main-50: rgba(27, 134, 242, 0.2);
+	--sub-color: #81bcf7;
+	--sub-dark: #3b86d1;
+}
+
+.quiz-container {
+	padding: 2rem 0;
+	margin: 0 auto;
+	width: 896px;
+}
+
+.quiz-container * {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+.quiz-container .quiz-heading h4 {
+	color: var(--main-color);
+}
+
+.quiz-container .quiz-heading textarea {
+	resize: none;
+	border: none;
+	outline: none;
+	font-size: 2rem;
+}
+
+.quiz-container .quiz-heading .stick {
+	width: 3rem;
+	height: 0.45rem;
+	background: var(--sub-color);
+}
+
+.quiz-container .quiz-section {
+	padding: 0.5rem;
+	margin-top: 1.5rem;
+}
+
+.quiz-container .quiz-section .top-panel {
+	display: flex;
+	align-items: center;
+	gap: 1.5rem;
+	margin-bottom: 0.5rem;
+}
+
+.quiz-container .quiz-section .top-panel h6 {
+	color: var(--sub-dark);
+	font-size: 1.2rem;
+	font-weight: bold;
+	margin-left: 0.4rem;
+}
+
+.quiz-container .quiz-section .top-panel .tools {
+	display: flex;
+	align-items: center;
+	gap: 0.8rem;
+}
+
+.quiz-container .quiz-section .top-panel .tools button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+	padding: 0.3rem 0.8rem;
+	border-radius: 2rem;
+	border: 0.1rem solid #00000050;
+	outline: none;
+	background: transparent;
+	font-size: 0.8rem;
+	font-weight: bold;
+}
+
+.quiz-container .quiz-section .top-panel .tools button.active-copy {
+	background: var(--main-50);
+}
+
+.quiz-container .quiz-section .blocks-container {
+	border: 0.1rem solid #b9b9b9aa;
+	border-radius: 0.3rem;
+	padding: 1rem 1rem 0 1rem;
+	transition: 0.2s;
+}
+
+.quiz-container .quiz-section .blocks-container > div {
+	transition: 0.2s;
+	margin-bottom: 1rem;
+}
+
+.quiz-container .summary .blocks-container,
+.quiz-container .vocabulary .blocks-container {
+	font-size: 0.9rem;
+}
+
+.quiz-container .vocabulary .blocks-container .word {
+	font-weight: bold;
+}
+
+.quiz-container .vocabulary .blocks-container .example {
+	font-style: italic;
+	color: gray;
+}
+
+.quiz-container .multiple .blocks-container .question {
+	margin-bottom: 0.5rem;
+	font-size: 1.1rem;
+}
+.quiz-container .multiple .blocks-container .answer {
+	margin-bottom: 0.15rem;
+	font-size: 1rem;
+}
+
+.quiz-container .quiz-section .blocks-container.active-edit {
+	border-color: var(--main-color);
+}
+
+.quiz-container .quiz-section .blocks-container.active-edit > div:hover {
+	border-bottom: 1px solid gray;
+}
+
+.quiz-container .quiz-section .blocks-container span.active-edit,
+.quiz-container .quiz-section .blocks-container li.active-edit {
+	text-decoration: underline var(--main-color);
+}
+
+.save,
+.active-copy {
+	color: var(--main-color);
+}
+
+[contenteditable] {
+	outline: 0px solid transparent;
+}
