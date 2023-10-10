@@ -1,12 +1,3 @@
-function a_makeQuiz() {
-	hideMobileNav()
-	$('.effect_menu').removeClass('active')
-	let element = document.getElementById('a_makePPT')
-	element.classList.add('active')
-	current_panel = 'quiz_panel'
-	showView(['myTopnav', 'quiz_panel'])
-}
-
 const editBtns = document.querySelectorAll('.quiz-container #edit')
 const copyBtns = document.querySelectorAll('.quiz-container #copy')
 const spans = document.querySelectorAll('.quiz-container .editable')
@@ -89,3 +80,46 @@ spans.forEach(function (span) {
 copyBtns.forEach(function (button) {
 	button.addEventListener('click', onCopyClick)
 })
+
+// Generate resources
+const switches = document.querySelectorAll('.switches button')
+const switchContainer = document.querySelector('.switch-container')
+
+function onSwitchClick(event) {
+	const btn = event.target.closest('button')
+	const switchBlocks = switchContainer.querySelectorAll('div')
+	switches.forEach(el => el.classList.remove('active-gen'))
+	switchBlocks.forEach(el => el.classList.remove('active-gen'))
+	btn.classList.add('active-gen')
+	const index = btn.getAttribute('data-id')
+	switchBlocks[index].classList.add('active-gen')
+}
+
+switches.forEach((el, index) => {
+	el.addEventListener('click', onSwitchClick)
+})
+
+// Context choose level
+const contextBtn = document.querySelector('.choose-level button')
+const contextSpan = document.querySelector('.choose-level button span')
+const contextList = document.querySelector('.choose-level ul')
+const contextElements = document.querySelectorAll('.choose-level ul li')
+
+function toggleContext() {
+	contextList.classList.toggle('hidden-context')
+}
+
+contextBtn.addEventListener('click', toggleContext)
+
+function onContextElClick(event) {
+	const li = event.target.closest('li')
+	contextSpan.innerText = li.innerText
+	toggleContext()
+}
+
+contextElements.forEach(el => el.addEventListener('click', onContextElClick))
+
+function onGenerateClick() {
+	document.querySelector('.quiz-wrapper').classList.add('hidden-gen')
+	document.querySelector('.generate-btn button').disabled = true
+}
